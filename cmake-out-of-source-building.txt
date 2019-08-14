@@ -1,0 +1,9 @@
+https://cgold.readthedocs.io/en/latest/tutorials/out-of-source.html
+http://cprieto.com/posts/2016/10/cmake-out-of-source-build.html
+https://zh.wikibooks.org/zh/CMake_%E5%85%A5%E9%96%80/Out-of-source_Build
+https://stackoverflow.com/questions/20610255/how-to-tell-cmake-where-to-put-build-files
+
+
+cmake -H. -B./build
+
+mkdir build && cd build && cmake .. && make
