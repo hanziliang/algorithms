@@ -8,8 +8,13 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
 aux_source_directory(./kmp kmp_src)
 aux_source_directory(./examples example)
+aux_source_directory(./dynamic/match-sum match_sum_src)
+
 
 MESSAGE("the src is : ${kmp_src}")
 
-add_executable(kmp ${example} ${kmp_src})
+MESSAGE("match-sum-src : ${match_sum_src}")
+
+add_executable(kmp ./examples/kmp.example.cpp ${kmp_src})
+add_executable(matchsum ./examples/match.sum.example.cpp ${match_sum_src})
 
