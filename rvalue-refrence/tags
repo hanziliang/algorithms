@@ -1,0 +1,37 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A	rvalue.cpp	/^        A():m_ptr(new int(0)){ cout << "construct" << endl; }$/;"	f	class:A	access:public	signature:()
+A	rvalue.cpp	/^        A(A&& a):m_ptr(a.m_ptr) {$/;"	f	class:A	access:public	signature:(A&& a)
+A	rvalue.cpp	/^        A(const A& a):m_ptr(new int(*a.m_ptr)) {$/;"	f	class:A	access:public	signature:(const A& a)
+A	rvalue.cpp	/^        A(int v):m_ptr(new int(v)) { cout << "construct" << endl; }$/;"	f	class:A	access:public	signature:(int v)
+A	rvalue.cpp	/^class A {$/;"	c	file:
+A::A	rvalue.cpp	/^        A():m_ptr(new int(0)){ cout << "construct" << endl; }$/;"	f	class:A	access:public	signature:()
+A::A	rvalue.cpp	/^        A(A&& a):m_ptr(a.m_ptr) {$/;"	f	class:A	access:public	signature:(A&& a)
+A::A	rvalue.cpp	/^        A(const A& a):m_ptr(new int(*a.m_ptr)) {$/;"	f	class:A	access:public	signature:(const A& a)
+A::A	rvalue.cpp	/^        A(int v):m_ptr(new int(v)) { cout << "construct" << endl; }$/;"	f	class:A	access:public	signature:(int v)
+A::m_ptr	rvalue.cpp	/^        int* m_ptr;$/;"	m	class:A	file:	access:private
+A::showValue	rvalue.cpp	/^        void showValue() {$/;"	f	class:A	access:public	signature:()
+A::~A	rvalue.cpp	/^        ~A(){$/;"	f	class:A	access:public	signature:()
+DirectoryOfThisScript	.ycm_extra_conf.py	/^def DirectoryOfThisScript():$/;"	f	access:public
+FlagsForFile	.ycm_extra_conf.py	/^def FlagsForFile( filename, **kwargs ):$/;"	f	access:public
+Get	rvalue.cpp	/^constexpr int Get(int value) {$/;"	f	signature:(int value)
+GetCompilationInfoForFile	.ycm_extra_conf.py	/^def GetCompilationInfoForFile( filename ):$/;"	f	access:public
+IsHeaderFile	.ycm_extra_conf.py	/^def IsHeaderFile( filename ):$/;"	f	access:public
+MakeRelativePathsInFlagsAbsolute	.ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	f	access:public
+SOURCE_EXTENSIONS	.ycm_extra_conf.py	/^SOURCE_EXTENSIONS = [ '.cpp', '.cxx', '.cc', '.c', '.m', '.mm' ]$/;"	v
+X	rvalue.cpp	/^constexpr int X() {$/;"	f	signature:()
+a	rvalue.cpp	/^int a = 3;$/;"	v
+compilation_database_folder	.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v
+database	.ycm_extra_conf.py	/^  database = None$/;"	v
+database	.ycm_extra_conf.py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	v
+flags	.ycm_extra_conf.py	/^flags = [$/;"	v
+m_ptr	rvalue.cpp	/^        int* m_ptr;$/;"	m	class:A	file:	access:private
+main	rvalue.cpp	/^int main() {$/;"	f	signature:()
+os	.ycm_extra_conf.py	/^import os$/;"	i
+showValue	rvalue.cpp	/^        void showValue() {$/;"	f	class:A	access:public	signature:()
+ycm_core	.ycm_extra_conf.py	/^import ycm_core$/;"	i
+~A	rvalue.cpp	/^        ~A(){$/;"	f	class:A	access:public	signature:()
