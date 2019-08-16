@@ -1,7 +1,5 @@
 #include "./match_sum.h"
 #include <iostream>
-#include <time.h>
-
 
 const bool EXIST=true, NoEXIST=false;
 

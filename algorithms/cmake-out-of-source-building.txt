@@ -6,4 +6,9 @@ https://stackoverflow.com/questions/20610255/how-to-tell-cmake-where-to-put-buil
 
 cmake -H. -B./build
 
-mkdir build && cd build && cmake .. && make
+mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Debug .. && make
+
+
+command line compile:
+gcc -fno-elide-constructors -std=c++17 -lstdc++ -g -v -o./build/kmp ./kmp/*.cpp ./examples/kmp.example.cpp
+gcc -fno-elide-constructors -std=c++17 -lstdc++ -g -v -o./build/match_sum ./dynamic/match-sum/*.cpp ./examples/match.sum.example.cpp
