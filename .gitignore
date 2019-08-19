@@ -3,3 +3,4 @@ venv/
 ipch/
 initializer_list/build/
 *.dSYM/
+build/

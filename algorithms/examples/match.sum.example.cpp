@@ -25,28 +25,26 @@ int main(int argc, char* argv[]) {
 
     bool isfind = false;
 
-#if 0
     start = time(0);
     isfind = subset_recursion(arr, arr.size()-1, sum);
     end = time(0);
 
-    printf("find_recursion result=%s, timecast=%.f(second)\n",
+    printf("find_recursion result=%s, timecast=%f(second)\n",
             isfind?"true":"false", difftime(end, start));
 
     start = time(0);
     isfind = subset_memoize(arr, cache, arr.size()-1, sum);
     end = time(0);
 
-    printf("find_memoize result=%s, timecast=%.f(second)\n",
+    printf("find_memoize result=%s, timecast=%f(second)\n",
             isfind?"true":"false", difftime(end, start));
 
-#endif
 
     start = time(0);
     isfind = subset_dynamic(arr, sum);
     end = time(0);
 
-    printf("find_dynamic result=%s, timecast=%.f(second)\n",
+    printf("find_dynamic result=%s, timecast=%f(second)\n",
            isfind?"true":"false", difftime(end, start));
 
 
