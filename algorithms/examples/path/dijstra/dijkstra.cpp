@@ -4,10 +4,10 @@
 #define INF INT_MAX
 #define PATH std::vector< std::vector<int> >
 
+// 'infinity' = inf
+// 'not_a_number' = nan
 std::unordered_map<int, string> alias {
-        {INF, "INF"},
-        {0, "NAN"},
-};
+    {INF, "INF"}, {0, "NAN"},};
 
 void dijstra(PATH &paths, int startpoint) ;
 
@@ -30,7 +30,6 @@ int main(int argc, char *argv[]) {
         {4, INF, INF, 4,   0,   13,  15},
         {5, INF, INF, INF, INF, 0,   4},
         {6, INF, INF, INF, INF, INF, 0}
-
 #endif
     };
 

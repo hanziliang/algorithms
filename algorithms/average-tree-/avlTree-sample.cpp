@@ -60,7 +60,7 @@ int main(void)
 	}
 	printf("测试查找功能完成!!!!!:_______________\n\n");
 	printf("测试删除功能__________________________\n");
-	for (i=20;i>=0;i--)
+	for (int i=20;i>=0;i--)
 	{
 		printf("开始删除节点:%2d\n",i);
 		pBBTNode = zBBT.BBTDeleteNode(i);
