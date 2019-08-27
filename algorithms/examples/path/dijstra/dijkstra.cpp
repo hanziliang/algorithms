@@ -1,7 +1,10 @@
 #include <climits>
+#include <set>
+#include <utility>
 #include "../../../utils/utils.h"
 
 #define INF INT_MAX
+
 #define PATH std::vector< std::vector<int> >
 
 // 'infinity' = inf
@@ -9,12 +12,12 @@
 std::unordered_map<int, string> alias {
     {INF, "INF"}, {0, "NAN"},};
 
-void dijstra(PATH &paths, int startpoint) ;
+void dijkstra(PATH &paths, int startpoint);
+vector<int> dijkstra2(vector<vector<pair<int,int>>> &v, int firstpoint);
 
 int main(int argc, char *argv[]) {
-
     PATH paths = {
-#if 0
+#if 1
         {0, 1,   2,   3,   4,   5,   6},
         {1, 0,   INF, 10,  INF, 30,  100},
         {2, INF, 0,   5,   INF, INF, INF},
@@ -34,14 +37,25 @@ int main(int argc, char *argv[]) {
     };
 
     int start = 1;
-
-    dijstra(paths, start);
-
+    dijkstra(paths, start);
     cout << "get final result:";
     display_vect(paths[start], &alias);
+
+    printf("\n------------------------------------\n");
+    vector<vector<pair<int,int>>> v = {
+            { {2, 10}, {4, 30}, {5, 100}},
+            { {2, 5},},
+            { {3, 50}},
+            { {5, 10}},
+            { {3, 20}, {5, 60}}, {} };
+
+    vector<int> dist = dijkstra2(v, start-1);
+
+    cout << "dijkstra2 get final result:";
+    display_vect(dist, &alias);
 }
 
-void dijstra(PATH &paths, int startpoint) {
+void dijkstra(PATH &paths, int startpoint) {
     int size = paths.size();
 
     vector<bool> marks(size, false);
@@ -98,3 +112,45 @@ void dijstra(PATH &paths, int startpoint) {
     }
 }
 
+
+
+// https://www.hackerearth.com/zh/practice/algorithms/graphs/shortest-path-algorithms/tutorial/
+// 参考资料中的迪杰斯特拉算法的实现有一个bug.可以自行比较
+// 这种实现方法,使用一个multiset来保存, 插入时就会自动排序
+// 省去了每次重新查找最近的节点的for循环
+vector<int> dijkstra2(vector<vector<pair<int,int>>> &v, int firstpoint) {
+    multiset< pair< int,int > > s;
+    s.insert({0, firstpoint});
+
+    vector<int> dist(v.size(), INF);
+    vector<bool> vis(v.size(), false);
+
+    s.insert({0 , firstpoint});                 // insert the source node with distance = 0
+
+    while(!s.empty()){
+        pair <int , int> p = *s.begin();        // pop the vertex with the minimum distance
+        s.erase(s.begin());
+
+        int x = p.second, min_weight = p.first;
+
+        if( vis[x] ) continue;                  // check if the popped vertex is visited before
+        vis[x] = true;
+
+        for(int i = 0; i < v[x].size(); i++){
+            // distance from point('x') to point('e') is 'w'
+            int e = v[x][i].first, w = v[x][i].second;
+
+            if(min_weight == INF) {continue;}
+
+            int tmp_weight = min_weight + w;
+            // so if min_distance[e] > min_distance[x] + w, update min_distance[e] to (min_distance[x] + w)
+            if( tmp_weight < dist[e] ) {        // check if the next vertex distance could be minimized
+                dist[e] = tmp_weight;
+                s.insert({tmp_weight, e});      // insert the next vertex with the updated distance
+            }
+
+        }
+    }
+
+    return dist;
+}

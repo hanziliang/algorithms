@@ -26,12 +26,17 @@ MESSAGE("the src is : ${kmp_src}")
 MESSAGE("match-sum-src : ${match_sum_src}")
 
 add_executable(kmp ./examples/kmp.example.cpp ${kmp_src})
+
 add_executable(matchsum ./examples/match.sum.example.cpp ${match_sum_src})
+
 add_executable(knapsack ./examples/knapsack.example.cpp ${knapsack_src})
+
 add_executable(floyd ./examples/floyd.example.cpp ${floyd_src})
+
 add_executable(allpath ./examples/path/findallpath/all_path.cpp)
 
-add_executable(shortestpath examples/path/shortestpath/dijkstra.cpp ${util_src})
+add_executable(dijkstra examples/path/dijstra ${util_src})
+add_executable(bellmanford examples/path/bellmanford ${util_src})
 
 add_executable(algorithms
         average-tree-/avlTree-sample.cpp
