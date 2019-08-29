@@ -6,10 +6,6 @@
 typedef std::vector< std::pair<string, int> > PATH_Node;
 typedef std::unordered_map<string, PATH_Node> PATH;
 
-std::unordered_map<int, string> alias {
-        {INT_MAX, "INF"}, {0, "NAN"},};
-
-
 void bellmanford(PATH &paths, string from) {
     PATH::iterator ipn = paths.find(from);
     if (ipn==paths.end()) {
@@ -26,7 +22,7 @@ void bellmanford(PATH &paths, string from) {
     for( auto &i: pnode) { dist[i.first] = i.second; }
 
     printf("init state of distance vector:\n");
-    display_map(dist, &alias);
+    display_map(dist, &ALIAS);
     cout<<endl<<endl;
 
     int size = paths.size();
@@ -47,7 +43,7 @@ void bellmanford(PATH &paths, string from) {
             }
 
             printf("after check vertex : %s\n", i.first.c_str());
-            display_map(dist, &alias);
+            display_map(dist, &ALIAS);
             cout << endl;
 
         }
@@ -66,7 +62,7 @@ void bellmanford(PATH &paths, string from) {
     }
 
     printf("\nfrom vertex:%s, get shortest path result\n", from.c_str());
-    display_map(dist, &alias);
+    display_map(dist, &ALIAS);
     cout << endl;
 }
 

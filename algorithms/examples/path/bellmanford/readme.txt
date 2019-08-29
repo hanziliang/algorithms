@@ -1,5 +1,8 @@
 https://www.hackerearth.com/zh/practice/algorithms/graphs/shortest-path-algorithms/tutorial/
+// 视频
 https://www.bilibili.com/video/av43217121/?p=1
+// 文本资料
+http://www.wutianqi.com/blog/1912.html
 
 Bellman Ford's Algorithm:
 Bellman Ford's algorithm is used to find the shortest paths from the source vertex to all other vertices in a weighted graph. It depends on the following concept: Shortest path contains at most n-1 edges, because the shortest path couldn't have a cycle.
@@ -20,4 +23,7 @@ This algorithm depends on the relaxation principle where the shortest distance f
 
 由于最短距离不可能存在环路, 所以, 最多需要循环n-1次,
 当时当某一次循环, 没有任何最短路径需要更新, 后面的循环也就没有必要了.
+
+在完成循环之后, 最后检查一次, 如果还能更新,
+说明,图中存在一个总权值为负值的环形路径, 即此图无解.
 

@@ -4,6 +4,8 @@
 
 #include "utils.h"
 
+INT_ALIAS ALIAS = {{INF, "INF"}, {0, "NAN"},};
+
 void display_vect(vector<int> &vect, std::unordered_map<int, std::string> *alias) {
     for(int v : vect) {
         if(!alias) { std::cout << v << " ";

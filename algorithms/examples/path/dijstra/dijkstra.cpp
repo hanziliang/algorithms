@@ -1,16 +1,7 @@
-#include <climits>
 #include <set>
-#include <utility>
 #include "../../../utils/utils.h"
 
-#define INF INT_MAX
-
 #define PATH std::vector< std::vector<int> >
-
-// 'infinity' = inf
-// 'not_a_number' = nan
-std::unordered_map<int, string> alias {
-    {INF, "INF"}, {0, "NAN"},};
 
 void dijkstra(PATH &paths, int startpoint);
 vector<int> dijkstra2(vector<vector<pair<int,int>>> &v, int firstpoint);
@@ -39,7 +30,7 @@ int main(int argc, char *argv[]) {
     int start = 1;
     dijkstra(paths, start);
     cout << "get final result:";
-    display_vect(paths[start], &alias);
+    display_vect(paths[start], &ALIAS);
 
     printf("\n------------------------------------\n");
     vector<vector<pair<int,int>>> v = {
@@ -52,7 +43,7 @@ int main(int argc, char *argv[]) {
     vector<int> dist = dijkstra2(v, start-1);
 
     cout << "dijkstra2 get final result:";
-    display_vect(dist, &alias);
+    display_vect(dist, &ALIAS);
 }
 
 void dijkstra(PATH &paths, int startpoint) {
@@ -65,7 +56,7 @@ void dijkstra(PATH &paths, int startpoint) {
     int c = 1;
 
     cout << "init status:" ;
-    display_vect(dist, &alias);
+    display_vect(dist, &ALIAS);
 
     while( c<size ) {
         int minpoint = 1;
@@ -91,7 +82,7 @@ void dijkstra(PATH &paths, int startpoint) {
         vector<int> &curpoint = paths[minpoint];
 
         cout << "shortest distance point " << minpoint << ":";
-        display_vect(curpoint, &alias);
+        display_vect(curpoint, &ALIAS);
 
         for(int i=1; i<size; i++) {
             if( i==minpoint || curpoint[i]==INF || curpoint[i]==0 ) continue;
@@ -104,7 +95,7 @@ void dijkstra(PATH &paths, int startpoint) {
         }
 
         cout << "after this process, get result:";
-        display_vect(dist, &alias);
+        display_vect(dist, &ALIAS);
         cout << "----------------------" << endl;
 
         c++;
