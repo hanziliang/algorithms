@@ -63,6 +63,7 @@ flags = [
     '-isystem', '/usr/include',
     '-isystem', '/System/Library/Frameworks',
     '-isystem', '/Library/Frameworks',
+    '-I', './algorithms/utils',
     # '-I', '.',
     # '-sesource-dir', '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/9.0.0',
 ]

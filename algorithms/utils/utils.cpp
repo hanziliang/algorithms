@@ -38,3 +38,50 @@ void display_map(std::unordered_map<string, int> &m, unordered_map<int, string> 
         }
     }
 }
+
+
+vector<int> scan_int_array() {
+    const int size = 256;
+
+    const char *splitor = " ";
+
+    vector<int> arr;
+    char input[size] = {0};
+    cout<< "input arrary number split by space..." << endl;
+
+    cin.getline(input, size-1);
+
+    int length = strlen(input);
+
+    for(int i=0; i<length; i++){
+        if((input[i]>'9' || input[i]<'0') && input[i]!=32 && input[i]!=0x2d) {
+            printf("there is a invalid char, index:%d, value:0x%x('%c')\n", i, input[i], input[i]);
+            return arr;
+        }
+    }
+    input[length] = '\0';
+
+    char *findpos = input;
+
+    while(true){
+        char *tmppos = strstr(findpos, splitor);
+
+        if( tmppos==nullptr ) {
+            break;
+        }
+
+        if(tmppos!=findpos) {
+            tmppos[0] ='\0';
+            arr.push_back(atoi(findpos));
+
+        }
+
+        findpos = tmppos+1;
+    }
+
+    if(findpos[0]!='\0') {
+        arr.push_back(atoi(findpos));
+    }
+
+    return arr;
+}
