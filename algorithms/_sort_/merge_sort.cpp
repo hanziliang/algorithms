@@ -67,8 +67,6 @@ vector<int> merge_sort(vector<int> &arr) {
         return vector<int>();
     }
 
-    IARR merged;
-
     vector< vector<int> > arrs;
 
     for(size_t i=0; i<arr.size(); i++) {
